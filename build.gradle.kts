@@ -56,7 +56,7 @@ jib{
 	}
 	to {
 		val sanitizedVersion = version.toString().replace('+', '_')
-		image = "registration-service"
+		image = "$name"
 		tags = setOf("latest", "$sanitizedVersion")
 	}
 	container {
