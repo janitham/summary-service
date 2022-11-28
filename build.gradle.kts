@@ -60,8 +60,7 @@ jib{
 		tags = setOf("latest", "$sanitizedVersion")
 	}
 	container {
-		//mainClass = "vote.california.registrationservice.RegistrationServiceApplication"
-		ports = listOf("8080/tcp", "9000/tcp")
+		ports = listOf("8081/tcp", "9000/tcp")
 		//appRoot = "/app"
 		//workingDirectory = "/app"
 		creationTime = "USE_CURRENT_TIMESTAMP"
