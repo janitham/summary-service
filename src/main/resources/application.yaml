@@ -4,3 +4,6 @@ spring:
       host: localhost #for now I kept localhost
       port: 27017
       database: reg
+
+server:
+  port: 8081
