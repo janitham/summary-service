@@ -20,6 +20,10 @@ repositories {
 	mavenCentral()
 }
 
+springBoot {
+	buildInfo()
+}
+
 /*extra["snippetsDir"] = file("build/generated-snippets")
 extra["testcontainersVersion"] = "1.17.6"*/
 
