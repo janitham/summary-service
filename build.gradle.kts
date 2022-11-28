@@ -72,7 +72,8 @@ jib{
 }
 
 task<Exec>("devVersion") {
-	commandLine("cmd","/c", "echo", "$version",">", "devVersion")
+	val sanitizedVersion = version.toString().replace('+', '_')
+	commandLine("cmd","/c", "echo", "$sanitizedVersion",">", "dVersion")
 }
 
 task<Exec>("updateDev") {
