@@ -24,9 +24,6 @@ springBoot {
 	buildInfo()
 }
 
-/*extra["snippetsDir"] = file("build/generated-snippets")
-extra["testcontainersVersion"] = "1.17.6"*/
-
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 	implementation("org.springframework.boot:spring-boot-starter-web")
@@ -37,8 +34,6 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
-//	testImplementation("org.testcontainers:junit-jupiter")
-//	testImplementation("org.testcontainers:mongodb")
 }
 
 tasks.withType<KotlinCompile> {
@@ -67,13 +62,7 @@ jib{
 	}
 	container {
 		ports = listOf("8081/tcp", "9000/tcp")
-		//appRoot = "/app"
-		//workingDirectory = "/app"
 		creationTime = "USE_CURRENT_TIMESTAMP"
-		//jvmFlags = listOf(
-		//	"-XX:InitialRAMPercentage=40.0",
-		//	"-XX:MaxRAMPercentage=75.0",
-		//)
 	}
 }
 
