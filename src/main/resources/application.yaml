@@ -5,8 +5,8 @@ spring:
       port: 27017
       database: reg
       authentication-database: admin
-      username: admin
-      password: admin
+      username:
+      password:
 
 management.endpoints.web.exposure.include: '*'
 
