@@ -1,6 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-
 plugins {
 	id("org.springframework.boot") version "2.7.0"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
@@ -13,7 +12,6 @@ plugins {
 }
 
 group = "vote.california"
-//version = "0.1.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
@@ -51,10 +49,6 @@ tasks.withType<Test> {
 jib{
 	from {
 		image = "dvmarques/openjdk-17-jdk-alpine-with-timezone@sha256:cc26b502a9aa7015fc6927963a1ba4d453d76f54360df7ce9a3f32b75cb492c1"
-		/*auth {
-			username = System.getenv("DOCKER_USER")
-			password = System.getenv("DOCKER_PASSWORD")
-		}*/
 	}
 	to {
 		val sanitizedVersion = version.toString().replace('+', '_')
@@ -70,28 +64,4 @@ jib{
 task<Exec>("devVersion") {
 	val sanitizedVersion = version.toString().replace('+', '_')
 	commandLine("cmd","/c", "echo", "$sanitizedVersion",">", "dVersion")
-}
-
-task<Exec>("updateDev") {
-	commandLine("sed", "-i","/tag/c\\  tag: $version", "env/dev/charts/registration/values.yaml")
-}
-
-task<Exec>("subTreePull") {
-    commandLine("git", "subtree", "pull", "--prefix", "env/dev/", "https://github.com/janitham/cmm707-gitops.git", "master", "--squash")
-}
-
-task<Exec>("subTreePush") {
-	commandLine("git", "subtree", "push", "--prefix", "env/dev/", "https://github.com/janitham/cmm707-gitops.git", "master")
-}
-
-task<Exec>("gitAddAll") {
-	commandLine("git", "add", "--all")
-}
-
-task<Exec>("gitCommit") {
-	commandLine("git", "commit", "-m", "updating version")
-}
-
-task<Exec>("gitUser") {
-    commandLine("git", "config", "user.name", "Action")
 }
