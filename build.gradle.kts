@@ -65,3 +65,5 @@ task<Exec>("devVersion") {
 	val sanitizedVersion = version.toString().replace('+', '_')
 	commandLine("cmd","/c", "echo", "$sanitizedVersion",">", "dVersion")
 }
+
+// testing comment
